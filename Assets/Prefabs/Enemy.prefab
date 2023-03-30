@@ -152,7 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 0}
   moveSpeed: 3
-  itemDropChance: 0.3
+  itemDropChance: 0.2
   itemPrefab: {fileID: 0}
   itemToSpawn: {fileID: 8293687064301117665, guid: 16e570a1afb6c584f837c36208cf9737, type: 3}
 --- !u!61 &3680762371793757626
