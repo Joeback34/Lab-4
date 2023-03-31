@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
     private int jumpsRemaining;
     private Rigidbody2D rb;
     private bool isGrounded = true;
-
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -39,6 +38,7 @@ public class PlayerController : MonoBehaviour
         }
 
        
+       
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -49,5 +49,7 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+
+   
 }
 
