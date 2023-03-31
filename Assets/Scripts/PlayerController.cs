@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundLayer;
     public int maxJumps = 2;
 
+   
     private int jumpsRemaining;
     private Rigidbody2D rb;
     private bool isGrounded = true;
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         jumpsRemaining = maxJumps;
+        
     }
 
     void Update()
@@ -36,7 +38,7 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
             jumpsRemaining--;
         }
-
+        
        
        
     }
