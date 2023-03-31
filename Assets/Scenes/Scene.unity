@@ -492,7 +492,7 @@ GameObject:
   - component: {fileID: 1334133475}
   - component: {fileID: 1334133474}
   - component: {fileID: 1334133473}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -631,7 +631,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1334133472}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.50142807, y: 0, z: 0}
+  m_LocalPosition: {x: 0.38, y: 0, z: 0}
   m_LocalScale: {x: 0.0030849578, y: 1.0096728, z: 0.09538034}
   m_Children: []
   m_Father: {fileID: 1818711368}
@@ -650,7 +650,7 @@ GameObject:
   - component: {fileID: 1498850550}
   - component: {fileID: 1498850549}
   - component: {fileID: 1498850548}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -789,7 +789,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1498850547}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.50027746, y: 0, z: 0}
+  m_LocalPosition: {x: -0.379, y: 0, z: 0}
   m_LocalScale: {x: 0.0030849578, y: 1.0096728, z: 0.09538034}
   m_Children: []
   m_Father: {fileID: 1818711368}
@@ -1004,13 +1004,30 @@ GameObject:
   - component: {fileID: 1726421844}
   - component: {fileID: 1726421845}
   - component: {fileID: 1726421846}
-  m_Layer: 6
+  - component: {fileID: 1726421840}
+  m_Layer: 0
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!70 &1726421840
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726421839}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.31517717, y: 2.0534825}
+  m_Size: {x: 17.122726, y: 24.503725}
+  m_Direction: 0
 --- !u!4 &1726421841
 Transform:
   m_ObjectHideFlags: 0
@@ -1019,8 +1036,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1726421839}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: -2.927, z: 0}
-  m_LocalScale: {x: 0.06164216, y: 0.06164216, z: 0.06164216}
+  m_LocalPosition: {x: 0, y: -2.828, z: 0}
+  m_LocalScale: {x: 0.071180135, y: 0.071180135, z: 0.071180135}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -1038,7 +1055,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  jumpForce: 112.66
+  jumpForce: 114.21
   groundCheck: {fileID: 938801993}
   groundLayer:
     serializedVersion: 2
@@ -1141,7 +1158,7 @@ GameObject:
   - component: {fileID: 1787276699}
   - component: {fileID: 1787276698}
   - component: {fileID: 1787276697}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1312,7 +1329,7 @@ Transform:
   m_GameObject: {fileID: 1818711367}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.0021093, y: 0.1, z: 0}
-  m_LocalScale: {x: 20.179203, y: 10.091178, z: 10.484341}
+  m_LocalScale: {x: 23.061047, y: 10.091178, z: 10.484341}
   m_Children:
   - {fileID: 1498850552}
   - {fileID: 1334133477}
