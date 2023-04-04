@@ -8,9 +8,9 @@ public class Enemy : MonoBehaviour
     public float moveSpeed = 3.0f;
     public float itemDropChance = 0.2f;
     public GameObject itemPrefab;
-
+   
     private Rigidbody2D rb;
-
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -28,9 +28,10 @@ public class Enemy : MonoBehaviour
         // Move towards the player
         rb.velocity = direction * moveSpeed;
 
-       
+        
     }
      public GameObject itemToSpawn; // The item to spawn when the enemy is destroyed
+    
 
     private void OnDestroy()
     {

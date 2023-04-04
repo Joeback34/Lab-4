@@ -13,8 +13,8 @@ public class PlayerController : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundLayer;
     public int maxJumps = 2;
-
-   
+    public Animator animator;
+    
     private int jumpsRemaining;
     private Rigidbody2D rb;
     private bool isGrounded = true;
@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         Vector2 movement = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
         rb.velocity = movement;
+
+        animator.SetFloat("Speed", Mathf.Abs(horizontalInput));
 
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
 
