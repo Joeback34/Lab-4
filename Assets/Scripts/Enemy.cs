@@ -44,11 +44,7 @@ public class Enemy : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // Check if the player collided with this enemy and is above it
-        if (collision.gameObject.tag == "Player" && collision.transform.position.y > transform.position.y)
-        {
-            Destroy(gameObject); // Destroy the game object this script is attached to
-        }
+       
     }
 
      
