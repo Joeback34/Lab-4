@@ -52,6 +52,10 @@ public class PlayerController : MonoBehaviour
             jumpsRemaining = maxJumps;
         }
 
+        if (Input.GetKeyDown("j"))
+        {
+            animator.SetTrigger("")
+        }
     }
 
    
