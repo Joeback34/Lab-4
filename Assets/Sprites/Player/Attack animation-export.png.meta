@@ -1,37 +1,37 @@
 fileFormatVersion: 2
-guid: 8966b538468e0ff4eb66e20657bcb23b
+guid: 7aec864835ad0e74fae077b3fdf8b784
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7008412969330441016
-    second: Attack_0
+      213: -1090055693216578106
+    second: Attack animation-export_0
   - first:
-      213: -7763475090823894447
-    second: Attack_1
+      213: 8407285384846197706
+    second: Attack animation-export_1
   - first:
-      213: 302641331129538988
-    second: Attack_2
+      213: 3887899751287426469
+    second: Attack animation-export_3
   - first:
-      213: -6329420634031446844
-    second: Attack_3
+      213: -6185800100243872870
+    second: Attack animation-export_6
   - first:
-      213: -910092549403018386
-    second: Attack_4
+      213: 6497615374347709235
+    second: Attack animation-export_2
   - first:
-      213: 221524225039350300
-    second: Attack_5
+      213: -3368416841648377521
+    second: Attack animation-export_4
   - first:
-      213: 1290532464073988732
-    second: Attack_6
+      213: -8215834394338277045
+    second: Attack animation-export_5
   - first:
-      213: 4780903288873104255
-    second: Attack_7
+      213: -7582438908232426152
+    second: Attack animation-export_7
   - first:
-      213: -2238382357930459393
-    second: Attack_8
+      213: -4210624460136955173
+    second: Attack animation-export_8
   - first:
-      213: -297473348006037033
-    second: Attack_9
+      213: 188852533433790681
+    second: Attack animation-export_9
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -157,85 +157,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Attack_0
+      name: Attack animation-export_0
       rect:
         serializedVersion: 2
-        x: 397
-        y: 67
-        width: 1945
-        height: 1106
+        x: 879
+        y: 612
+        width: 2285
+        height: 1791
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 241, y: 81, z: 0, w: 572}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c481db598d1dbe90800000000000000
-      internalID: -7008412969330441016
+      spriteID: 6c50f645f185fd0f0800000000000000
+      internalID: -1090055693216578106
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_1
+      name: Attack animation-export_1
       rect:
         serializedVersion: 2
-        x: 2856
-        y: 67
-        width: 2040
-        height: 1186
+        x: 3312
+        y: 570
+        width: 2500
+        height: 1876
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 335, y: 118, z: 81, w: 561}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15a29dc9988924490800000000000000
-      internalID: -7763475090823894447
+      spriteID: ac34719838daca470800000000000000
+      internalID: 8407285384846197706
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_3
+      name: Attack animation-export_3
       rect:
         serializedVersion: 2
-        x: 5384
-        y: 67
-        width: 2040
-        height: 1186
+        x: 5957
+        y: 453
+        width: 2349
+        height: 2130
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 120, y: 228, z: 0, w: 974}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c42782d7716928a0800000000000000
-      internalID: -6329420634031446844
+      spriteID: 5ad01dd893894f530800000000000000
+      internalID: 3887899751287426469
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_6
+      name: Attack animation-export_6
       rect:
         serializedVersion: 2
-        x: 7805
-        y: 67
-        width: 2199
-        height: 1186
+        x: 8541
+        y: 671
+        width: 2270
+        height: 1700
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 27, z: 0, w: 734}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7a5d344074e8e110800000000000000
-      internalID: 1290532464073988732
+      spriteID: a936365259f972aa0800000000000000
+      internalID: -6185800100243872870
       vertices: []
       indices: 
       edges: []

@@ -40,9 +40,13 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
             jumpsRemaining--;
         }
+
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            animator.SetTrigger("Attack");
+        }
         
-       
-       
+
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -52,10 +56,6 @@ public class PlayerController : MonoBehaviour
             jumpsRemaining = maxJumps;
         }
 
-        if (Input.GetKeyDown("j"))
-        {
-            animator.SetTrigger("")
-        }
     }
 
    
