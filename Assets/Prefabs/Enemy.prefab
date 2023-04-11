@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -3912111267443317706}
   - component: {fileID: 1169989125}
   - component: {fileID: 463476456}
+  - component: {fileID: 6567297335883796576}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -71,9 +72,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 0}
   moveSpeed: 3
-  itemDropChance: 0.2
-  itemPrefab: {fileID: 0}
-  itemToSpawn: {fileID: 8293687064301117665, guid: 16e570a1afb6c584f837c36208cf9737, type: 3}
 --- !u!212 &4760763112782292821
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -182,3 +180,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 11.389795, y: 8.150321}
   m_EdgeRadius: 0
+--- !u!114 &6567297335883796576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8894179113369430940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 522de516eae067240a324462fad4c572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 100

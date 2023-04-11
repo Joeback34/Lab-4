@@ -6,8 +6,8 @@ public class Enemy : MonoBehaviour
 {
     public Transform playerTransform;
     public float moveSpeed = 3.0f;
-    public float itemDropChance = 0.2f;
-    public GameObject itemPrefab;
+    
+   
    
     private Rigidbody2D rb;
     
@@ -27,26 +27,6 @@ public class Enemy : MonoBehaviour
 
         // Move towards the player
         rb.velocity = direction * moveSpeed;
-
-        
     }
-     public GameObject itemToSpawn; // The item to spawn when the enemy is destroyed
     
-
-    private void OnDestroy()
-    {
-        if (Random.value <= itemDropChance)
-        {
-            Instantiate(itemToSpawn, transform.position, Quaternion.identity); // Spawn the item at the enemy's position
-        }
-    }
-           
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-       
-    }
-
-     
-
 }
