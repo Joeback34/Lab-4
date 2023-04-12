@@ -14,7 +14,8 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundLayer;
     public int maxJumps = 2;
     public Animator animator;
-    
+
+   
     private int jumpsRemaining;
     private Rigidbody2D rb;
     private bool isGrounded = true;
@@ -40,22 +41,27 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
             jumpsRemaining--;
         }
-
+    
         if (Input.GetKeyDown(KeyCode.J))
         {
             animator.SetTrigger("Attack");
         }
         
 
+     
     }
 
+   
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
             jumpsRemaining = maxJumps;
         }
-
+        if (collision.gameObject.layer == LayerMask.NameToLayer("enemy"))
+        {
+            jumpsRemaining = maxJumps;
+        }
     }
 
    
