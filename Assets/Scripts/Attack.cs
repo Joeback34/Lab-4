@@ -30,6 +30,6 @@ public class Attack : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
-        Gizmos.DrawSphere(attackLocation.position, .5f);
+        Gizmos.DrawSphere(attackLocation.position, .3f);
     }
 }

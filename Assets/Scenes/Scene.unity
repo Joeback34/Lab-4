@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 8894179113369430940, guid: 8af20d8d409f2e641b1b8ef4814f9c6c, type: 3}
-  spawnRate: 10
+  spawnRate: 15
   spawnRadius: 12
   spawnHeight: -2.67
 --- !u!4 &331558310
@@ -328,7 +328,7 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
-  m_TargetEye: 0
+  m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
@@ -350,6 +350,63 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &536733122
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8894179113369430940, guid: 8af20d8d409f2e641b1b8ef4814f9c6c, type: 3}
+      propertyPath: m_Name
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8894179113369430942, guid: 8af20d8d409f2e641b1b8ef4814f9c6c, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8894179113369430942, guid: 8af20d8d409f2e641b1b8ef4814f9c6c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 8894179113369430942, guid: 8af20d8d409f2e641b1b8ef4814f9c6c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 8894179113369430942, guid: 8af20d8d409f2e641b1b8ef4814f9c6c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8894179113369430942, guid: 8af20d8d409f2e641b1b8ef4814f9c6c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8894179113369430942, guid: 8af20d8d409f2e641b1b8ef4814f9c6c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8894179113369430942, guid: 8af20d8d409f2e641b1b8ef4814f9c6c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8894179113369430942, guid: 8af20d8d409f2e641b1b8ef4814f9c6c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8894179113369430942, guid: 8af20d8d409f2e641b1b8ef4814f9c6c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8894179113369430942, guid: 8af20d8d409f2e641b1b8ef4814f9c6c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8894179113369430942, guid: 8af20d8d409f2e641b1b8ef4814f9c6c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8af20d8d409f2e641b1b8ef4814f9c6c, type: 3}
 --- !u!1 &741364538
 GameObject:
   m_ObjectHideFlags: 0
@@ -954,7 +1011,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 83, y: 65.2}
+  m_AnchoredPosition: {x: 83, y: 79.7}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1510281840
@@ -1020,7 +1077,7 @@ Transform:
   m_GameObject: {fileID: 1532782547}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.22, y: -1.4, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.82823, y: 0.82823, z: 0.82823}
   m_Children: []
   m_Father: {fileID: 1726421841}
   m_RootOrder: 0
@@ -1075,7 +1132,7 @@ GameObject:
   - component: {fileID: 1726421847}
   - component: {fileID: 1726421848}
   - component: {fileID: 1726421849}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1136,12 +1193,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 7
-  jumpForce: 114.21
+  jumpForce: 150
   groundCheck: {fileID: 938801993}
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  maxJumps: 10
+  maxJumps: 2
   animator: {fileID: 1726421843}
 --- !u!95 &1726421843
 Animator:
@@ -1174,10 +1231,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 20
+  m_Mass: 11
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1.86
+  m_GravityScale: 7
   m_Material: {fileID: 0}
   m_Interpolate: 1
   m_SleepingMode: 1
@@ -1824,7 +1881,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2099928072}
   - component: {fileID: 2099928071}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PteraSpawnManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}

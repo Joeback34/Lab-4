@@ -1,7 +1,19 @@
 fileFormatVersion: 2
-guid: 7bf49759d68d4704ab18435b8a03d5aa
+guid: 15ff343be12c6bf449a46729230333e9
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -7692945985552810133
+    second: New Piskel (10)-Sheet_0
+  - first:
+      213: -6288163647516186749
+    second: New Piskel (10)-Sheet_1
+  - first:
+      213: 2883805045205800867
+    second: New Piskel (10)-Sheet_2
+  - first:
+      213: 8716071579259148150
+    second: New Piskel (10)-Sheet_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,7 +53,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -91,12 +103,12 @@ TextureImporter:
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 12
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 1
+    overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -125,7 +137,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: New Piskel (10)-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 8314
+        width: 1930
+        height: 1137
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6f7bd6926a2d3590800000000000000
+      internalID: -7692945985552810133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Piskel (10)-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 5712
+        width: 2312
+        height: 1430
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 4, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 387e54c8a74fbb8a0800000000000000
+      internalID: -6288163647516186749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Piskel (10)-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 3116
+        width: 2351
+        height: 1314
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a798f8d865550820800000000000000
+      internalID: 2883805045205800867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Piskel (10)-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 515
+        width: 2482
+        height: 1198
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6779e9eebe4b5f870800000000000000
+      internalID: 8716071579259148150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

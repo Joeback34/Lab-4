@@ -6,9 +6,9 @@ public class Enemy : MonoBehaviour
 {
     public Transform playerTransform;
     public float moveSpeed = 3.0f;
-    
-   
-   
+    public Animator animator;
+
+
     private Rigidbody2D rb;
     
     void Start()
@@ -28,5 +28,13 @@ public class Enemy : MonoBehaviour
         // Move towards the player
         rb.velocity = direction * moveSpeed;
     }
-    
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            animator.SetTrigger("EnemyAttack");
+        }
+    }
+
+
 }
