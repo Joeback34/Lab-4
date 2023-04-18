@@ -19,8 +19,10 @@ public class PlayerController : MonoBehaviour
     private int jumpsRemaining;
     private Rigidbody2D rb;
     private bool isGrounded = true;
+   
     void Start()
     {
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         jumpsRemaining = maxJumps;
         
@@ -34,21 +36,33 @@ public class PlayerController : MonoBehaviour
 
         animator.SetFloat("Speed", Mathf.Abs(horizontalInput));
 
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer );
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded && jumpsRemaining > 0)
         {
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
             jumpsRemaining--;
+            animator.SetTrigger("Jump");
         }
     
         if (Input.GetKeyDown(KeyCode.J))
         {
             animator.SetTrigger("Attack");
         }
-        
-     
-    }
+
+        if(rb.velocity.y < 0)
+        {
+            animator.SetTrigger("Jump");
+        }
+        else if (rb.velocity.y > 0)
+        {
+            animator.SetTrigger("Fall");
+        }
+        else if (isGrounded)
+        {
+            animator.SetTrigger("isGrounded");
+        }
+    }  
 
    
     void OnCollisionEnter2D(Collision2D collision)
