@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            animator.SetTrigger("EnemyAttack");
+            animator.SetTrigger("Attack");
         }
     }
 
