@@ -12,13 +12,14 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 10f;
     public Transform groundCheck;
     public LayerMask groundLayer;
-    public int maxJumps = 2;
+    public int maxJumps = 1;
     public Animator animator;
 
-   
+    public bool inAir;
+
     private int jumpsRemaining;
     private Rigidbody2D rb;
-    private bool isGrounded = true;
+    [SerializeField] bool isGrounded = true;
    
     void Start()
     {
@@ -30,39 +31,42 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        Vector2 movement = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
-        rb.velocity = movement;
 
-        animator.SetFloat("Speed", Mathf.Abs(horizontalInput));
+         
 
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer );
+        isGrounded = Physics2D.OverlapBox(groundCheck.position, new Vector2(2f, 0.1f), groundLayer);
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded && jumpsRemaining > 0)
         {
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
             jumpsRemaining--;
-            animator.SetTrigger("Jump");
+            isGrounded = false;
+            animator.SetBool("IsJumping", true);
         }
     
         if (Input.GetKeyDown(KeyCode.J))
         {
-            animator.SetTrigger("Attack");
+            animator.SetBool("Attack", true);
+        }
+        else
+        {
+            animator.SetBool("Attack", false);
+        }
+        if (isGrounded)
+        {
+            animator.SetBool("IsJumping", false);
         }
 
-        if(rb.velocity.y < 0)
+        if (Input.GetKey(KeyCode.Space))
         {
-            animator.SetTrigger("Jump");
+            animator.SetTrigger("IsJumping");
         }
-        else if (rb.velocity.y > 0)
-        {
-            animator.SetTrigger("Fall");
-        }
-        else if (isGrounded)
-        {
-            animator.SetBool("isJumping", false);
-        }
-    }  
+
+       
+        
+         
+       
+    }   
 
    
     void OnCollisionEnter2D(Collision2D collision)
@@ -77,6 +81,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-   
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawCube(groundCheck.position, new Vector2(2f, 0.1f));
+    }
+
 }
 
