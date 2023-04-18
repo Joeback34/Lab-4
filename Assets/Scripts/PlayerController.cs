@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (isGrounded)
         {
-            animator.SetTrigger("isGrounded");
+            animator.SetBool("isJumping", false);
         }
     }  
 
