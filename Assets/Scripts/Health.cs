@@ -27,7 +27,7 @@ public class Health : MonoBehaviour
     {
         if(transform.name != "Player")
         {
-            Score.score++;
+            ScoreManager.score++;
         }
             Destroy(gameObject);
     }

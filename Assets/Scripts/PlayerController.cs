@@ -11,13 +11,13 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
     public Transform groundCheck;
-    public LayerMask groundLayer;
+    public LayerMask groundLayer, enemyLayer;
     public int maxJumps = 1;
     public Animator animator;
     public bool isColliding;
     public bool inAir;
-
-    private List<Collider2D> results; 
+    
+    private Collider2D[] results; 
     private int jumpsRemaining;
     private Rigidbody2D rb;
     [SerializeField] bool isGrounded = true;
@@ -49,13 +49,25 @@ public class PlayerController : MonoBehaviour
     
         if (Input.GetKeyDown(KeyCode.J))
         {
-            isColliding = Physics2D.OverlapCircle(groundCheck.position, .1f, ContactFilter2D., 5);
+            
+            results = Physics2D.OverlapCircleAll(GetComponent<Attack>().attackLocation.position, .3f, enemyLayer);
             animator.SetBool("Attack", true);
+            
+            foreach (Collider2D collider2D in results)
+            {
+                if(collider2D.GetComponent<Health>() != null && collider2D.name != "Player")
+                {
+                    collider2D.GetComponent<Health>().TakeDamage(25);
+                }
+            }
         }
         else
         {
             animator.SetBool("Attack", false);
         }
+        
+
+
         if (isGrounded)
         {
             animator.SetBool("IsJumping", false);
@@ -83,8 +95,12 @@ public class PlayerController : MonoBehaviour
         {
             jumpsRemaining = maxJumps;
         }
+        
     }
 
+   
+
+    
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawCube(groundCheck.position, new Vector2(2f, 0.1f));

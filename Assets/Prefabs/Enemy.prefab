@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1169989125}
   - component: {fileID: 463476456}
   - component: {fileID: 6567297335883796576}
+  - component: {fileID: 1100134877}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Ground
@@ -73,6 +74,7 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   moveSpeed: 3
   animator: {fileID: 1169989125}
+  damageInterval: 1.5
 --- !u!212 &4760763112782292821
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -195,3 +197,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 100
+--- !u!114 &1100134877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8894179113369430940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec161d75710aa07489bf220cc7167362, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  restartCanvas: {fileID: 0}
+  scoreText: {fileID: 0}

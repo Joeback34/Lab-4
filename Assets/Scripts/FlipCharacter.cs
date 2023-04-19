@@ -27,7 +27,7 @@ public class FlipCharacter : MonoBehaviour
         {
             IsFacingRight = true;
         }
-        else
+        else if(moveInput < 0)
         {
             IsFacingRight = false;
         }
