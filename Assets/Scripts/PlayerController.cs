@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
 
         isGrounded = Physics2D.OverlapBox(groundCheck.position, new Vector2(2f, 0.1f), groundLayer);
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded && jumpsRemaining > 0)
+        if (Input.GetKey(KeyCode.Space) && isGrounded && jumpsRemaining > 0)
         {
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
             jumpsRemaining--;
