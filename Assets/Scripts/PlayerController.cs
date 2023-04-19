@@ -14,9 +14,10 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundLayer;
     public int maxJumps = 1;
     public Animator animator;
-
+    public bool isColliding;
     public bool inAir;
 
+    private List<Collider2D> results; 
     private int jumpsRemaining;
     private Rigidbody2D rb;
     [SerializeField] bool isGrounded = true;
@@ -36,6 +37,8 @@ public class PlayerController : MonoBehaviour
 
         isGrounded = Physics2D.OverlapBox(groundCheck.position, new Vector2(2f, 0.1f), groundLayer);
 
+
+
         if (Input.GetKey(KeyCode.Space) && isGrounded && jumpsRemaining > 0)
         {
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
@@ -46,6 +49,7 @@ public class PlayerController : MonoBehaviour
     
         if (Input.GetKeyDown(KeyCode.J))
         {
+            isColliding = Physics2D.OverlapCircle(groundCheck.position, .1f, ContactFilter2D., 5);
             animator.SetBool("Attack", true);
         }
         else
