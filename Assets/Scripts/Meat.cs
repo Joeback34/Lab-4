@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Meat : MonoBehaviour
 {
+    public int Heal;
     void OnCollisionEnter2D(Collision2D collision)
     {
         // Check if the player collided with this enemy and is above it

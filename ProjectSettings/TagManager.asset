@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - DropItem
+  - GameOverPanel
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - wall
   - enemy
   - Player
-  - 
+  - Meat
   - 
   - 
   - 

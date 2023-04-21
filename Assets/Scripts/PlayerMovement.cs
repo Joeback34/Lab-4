@@ -4,6 +4,8 @@ using UnityEngine;
     
 public class PlayerMovement : MonoBehaviour
 {
+    
+   
     public float moveSpeed = 5f;
     private Rigidbody2D rb;
     public Animator animator;
@@ -14,8 +16,11 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    private void Update()
+    void Update()
     {
+       
+        
+
         float moveHorizontal = Input.GetAxis("Horizontal");
         Vector2 movement = new Vector2(moveHorizontal * moveSpeed, rb.velocity.y);
         rb.velocity = movement;

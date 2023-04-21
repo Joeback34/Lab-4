@@ -8,6 +8,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    bool canJump = true;
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
     public Transform groundCheck;
@@ -16,7 +17,8 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public bool isColliding;
     public bool inAir;
-    
+    float jumpDelay = 1f;
+    float jumpTimer = 0f;
     private Collider2D[] results; 
     private int jumpsRemaining;
     private Rigidbody2D rb;
@@ -32,8 +34,26 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        float deltaTime = Time.deltaTime;
+        if (!canJump)
+        {
+            jumpTimer -= deltaTime;
+            if (jumpTimer <= 0)
+            {
+                canJump = true;
+            }
+        }
 
-         
+        if (canJump && Input.GetKey(KeyCode.Space))
+        {
+            Jump();
+        }
+        void Jump()
+        {
+            canJump = false;
+            jumpTimer = jumpDelay;
+        }
+
 
         isGrounded = Physics2D.OverlapBox(groundCheck.position, new Vector2(2f, 0.1f), groundLayer);
 
@@ -45,6 +65,7 @@ public class PlayerController : MonoBehaviour
             jumpsRemaining--;
             isGrounded = false;
             animator.SetBool("IsJumping", true);
+
         }
     
         if (Input.GetKeyDown(KeyCode.J))
@@ -95,7 +116,11 @@ public class PlayerController : MonoBehaviour
         {
             jumpsRemaining = maxJumps;
         }
-        
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Meat"))
+        {
+            GetComponent<Health>().TakeDamage(-25);
+           
+        }
     }
 
    

@@ -17,19 +17,29 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        playerTransform = GameObject.Find("Player").transform; // players transform the enemy will follow
+        
+        if(GameObject.Find("Player") != null)
+        {
+            playerTransform = GameObject.Find("Player").transform;
+        }
+           
+
     }
 
     void Update()
     {
         // Calculate the direction towards the player
-        Vector2 direction = playerTransform.position - transform.position;
+        
+        if (playerTransform != null)
+        {
+            Vector2 direction = playerTransform.position - transform.position;
+            direction.Normalize();
 
-        // Normalize the direction to get a unit vector
-        direction.Normalize();
-
-        // Move towards the player
-        rb.velocity = direction * moveSpeed;
+            rb.velocity = direction * moveSpeed;
+        }
+        
+  
+        
 
        
         
@@ -42,11 +52,12 @@ public class Enemy : MonoBehaviour
         {
             animator.SetTrigger("Attack");
             StartCoroutine(DealDamageCoroutine(collision.gameObject));
-        }   
+        }
+       
     }   
-    private void OnCollisionExit2D(Collision2D collision)
+    void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("enemy"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             StopCoroutine(DealDamageCoroutine(collision.gameObject));
         }
@@ -55,7 +66,7 @@ public class Enemy : MonoBehaviour
     {
         while (true)
         {
-            if (canDealDamage)
+            if (canDealDamage && player != null)
             {
                 player.GetComponent<Health>().TakeDamage(25);
 

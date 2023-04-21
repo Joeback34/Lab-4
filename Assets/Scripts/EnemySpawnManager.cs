@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawnManager : MonoBehaviour
-{
+{   
     public GameObject enemyPrefab; // the enemy prefab to spawn
     public float spawnRate; // how often to spawn an enemy
     public float spawnRadius; // how far from the center of the screen to spawn enemies
@@ -25,5 +25,7 @@ public class EnemySpawnManager : MonoBehaviour
             // set the next spawn time based on the spawn rate
             nextSpawnTime = Time.time + spawnRate;
         }
+
+       
     }
 }
