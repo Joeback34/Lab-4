@@ -51,23 +51,16 @@ public class Health : MonoBehaviour
             gameManager.gameOver();
             Die();
         }
-    }   
-
-    
-
-    private void Die()
-    {
-        if(transform.name != "Player")
-        {
-            ScoreManager.score++;
-        }
-            Destroy(gameObject);
     }
 
 
-    // Update is called once per frame
-    void Update()
+
+    private void Die()
     {
-        
+        if (transform.name != "Player")
+        {
+            ScoreManager.score++;
+        }
+        Destroy(gameObject);
     }
 }

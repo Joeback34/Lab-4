@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     public Transform playerTransform;
     public float moveSpeed = 3.0f;
     public Animator animator;
-
+    public float attackTime = 0f;
     public float damageInterval = 1.5f;
 
     private bool canDealDamage = true;
@@ -37,8 +37,18 @@ public class Enemy : MonoBehaviour
 
             rb.velocity = direction * moveSpeed;
         }
-        
-  
+
+        attackTime -= Time.deltaTime;
+
+        if(attackTime <= 0)
+        {
+            attackTime = 0;
+            canDealDamage = true;
+        }
+        else
+        {
+            canDealDamage = false;
+        }
         
 
        
@@ -59,7 +69,8 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            StopCoroutine(DealDamageCoroutine(collision.gameObject));
+            //StopCoroutine(DealDamageCoroutine(collision.gameObject));
+            StopAllCoroutines();
         }
     }
     private IEnumerator DealDamageCoroutine(GameObject player)
@@ -72,9 +83,11 @@ public class Enemy : MonoBehaviour
 
                 canDealDamage = false;
 
+                attackTime = damageInterval;
+
                 yield return new WaitForSeconds(damageInterval);
 
-                canDealDamage = true;
+               
             }
 
             yield return null;
