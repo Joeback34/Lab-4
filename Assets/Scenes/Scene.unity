@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 8894179113369430940, guid: 8af20d8d409f2e641b1b8ef4814f9c6c, type: 3}
-  spawnRate: 100
+  spawnRate: 2
   spawnRadius: 12
   spawnHeight: -2.67
 --- !u!4 &331558310
@@ -1914,7 +1914,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1afef11c4057312439ba9f35573e1d9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 5
   animator: {fileID: 1726421843}
 --- !u!1 &1747085215
 GameObject:

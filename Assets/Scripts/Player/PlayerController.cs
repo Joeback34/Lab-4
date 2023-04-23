@@ -34,16 +34,33 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+            isJumping = true;
         }
     }
     void Update()
     {
-        
 
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.1f, groundLayer);
+        {
+            if(hit.collider != null)
+            {
+                isGrounded = true;
+            }
+            else
+            {
+                isGrounded = false;
+            }
+        }
 
         isGrounded = Physics2D.OverlapBox(transform.position, new Vector2(2f, 0.1f), groundLayer);
-
+        
         inAir = !isGrounded;
+
+        if (inAir)
+        {
+            isGrounded = false;
+        }
 
         if (canJump && Input.GetKeyDown(KeyCode.Space) && !isJumping && Time.time > LastJumpTime + jumpCooldown)
         {
@@ -76,6 +93,8 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("Attack", false);
         }
+
+        animator.SetBool("IsJumping", isJumping);
     }
 
 
@@ -87,6 +106,12 @@ public class PlayerController : MonoBehaviour
         {
             GetComponent<Health>().TakeDamage(-25);
         }
+        
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            isJumping = false;
+        }
+
     }
 
 
