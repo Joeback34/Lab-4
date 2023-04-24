@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 8894179113369430940, guid: 8af20d8d409f2e641b1b8ef4814f9c6c, type: 3}
-  spawnRate: 2
+  spawnRate: 56.25
   spawnRadius: 12
   spawnHeight: -2.67
 --- !u!4 &331558310
@@ -2650,7 +2650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PteraPrefab: {fileID: 8415460740908742848, guid: fd69b9cedf0ad8f4dada09d2c5f67743, type: 3}
-  spawnRate: 26.72
+  spawnRate: 55.68
 --- !u!4 &2099928072
 Transform:
   m_ObjectHideFlags: 0

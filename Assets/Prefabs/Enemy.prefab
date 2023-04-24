@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 6567297335883796576}
   m_Layer: 7
   m_Name: Enemy
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,6 +73,7 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   moveSpeed: 3
   animator: {fileID: 1169989125}
+  attackTime: 0
   damageInterval: 1.5
 --- !u!212 &4760763112782292821
 SpriteRenderer:
@@ -197,3 +198,4 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 100
   animator: {fileID: 0}
+  gameManager: {fileID: 0}
