@@ -112,6 +112,10 @@ public class PlayerController : MonoBehaviour
             isJumping = false;
         }
 
+        if (collision.gameObject.layer == LayerMask.NameToLayer("enemy"))
+        {
+            isJumping = false;
+        }
     }
 
 
