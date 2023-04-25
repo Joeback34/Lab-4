@@ -5,11 +5,13 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class GameOverManager : MonoBehaviour
 {
+    public Button backToMenu;
     public Button restartButton;
     public GameObject gameOverUI;
 
     private void Start()
     {
+        backToMenu.onClick.AddListener(BackToMenu);
         restartButton.onClick.AddListener(RestartGame);
     }
 
@@ -24,4 +26,8 @@ public class GameOverManager : MonoBehaviour
         ScoreManager.score = 0;
     }
 
+    void BackToMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
 }

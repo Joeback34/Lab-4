@@ -8,7 +8,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    
+    public bool canRoar;
+    public float kCooldown = 2f;
+    public float roarTime = 0f;
+
     bool isJumping = false;
     bool canJump = true;
     public float moveSpeed = 5f;
@@ -17,7 +20,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundLayer, enemyLayer;
     public Animator animator;
     public bool inAir = false;
-
+    private float lastKPressTime = 0f;
     public float jumpCooldown = 1.0f;
     public float LastJumpTime = 0.0f;
     private Collider2D[] results;
@@ -28,7 +31,8 @@ public class PlayerController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-       
+
+        canRoar = true;
     }
     void Jump()
     {
@@ -75,12 +79,12 @@ public class PlayerController : MonoBehaviour
             canJump = true;
         }
 
-        
-        
+
+      
 
 
-            if (Input.GetKeyDown(KeyCode.J))
-            {
+        if (Input.GetKeyDown(KeyCode.J))
+        {
 
                 results = Physics2D.OverlapCircleAll(GetComponent<Attack>().attackLocation.position, .3f, enemyLayer);
                 animator.SetBool("Attack", true);
@@ -92,26 +96,36 @@ public class PlayerController : MonoBehaviour
                         collider2D.GetComponent<Health>().TakeDamage(25);
                     }
                 }
-            }
-            else
-            {
-                animator.SetBool("Attack", false);
-            }
+        }
+        else
+        {
+            animator.SetBool("Attack", false);
+        }
         
         animator.SetBool("IsJumping", isJumping);  
 
         
-        
+      
 
 
-            if (Input.GetKeyDown(KeyCode.K))
-            {
-                animator.SetBool("Roar", true);
-            }
-            else
-            {
-                animator.SetBool("Roar", false);
-            }
+        if (Input.GetKeyDown(KeyCode.K) && canRoar)
+        {
+           animator.SetBool("Roar", true);
+           canRoar = false;
+            roarTime = kCooldown;
+        }
+        else
+        {
+           animator.SetBool("Roar", false);
+        }
+        if (canRoar == false && roarTime > 0)
+        {
+            roarTime -= Time.deltaTime;
+        }
+        if(roarTime <= 0)
+        {
+            canRoar = true;
+        }
         
     }
 

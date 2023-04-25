@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour
     public Animator animator;
     public float attackTime = 0f;
     public float damageInterval = 1.5f;
+
+   
     private bool isPaused = false;
     private bool canDealDamage = true;
     private Rigidbody2D rb;
@@ -62,7 +64,8 @@ public class Enemy : MonoBehaviour
             isPaused = false;
         }
 
-       
+        
+
     }
     void OnCollisionStay2D(Collision2D collision)
     {
