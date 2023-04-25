@@ -8,6 +8,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    
     bool isJumping = false;
     bool canJump = true;
     public float moveSpeed = 5f;
@@ -74,37 +75,44 @@ public class PlayerController : MonoBehaviour
             canJump = true;
         }
 
+        
+        
 
-        if (Input.GetKeyDown(KeyCode.J))
-        {
 
-            results = Physics2D.OverlapCircleAll(GetComponent<Attack>().attackLocation.position, .3f, enemyLayer);
-            animator.SetBool("Attack", true);
-
-            foreach (Collider2D collider2D in results)
+            if (Input.GetKeyDown(KeyCode.J))
             {
-                if (collider2D.GetComponent<Health>() != null && collider2D.name != "Player")
+
+                results = Physics2D.OverlapCircleAll(GetComponent<Attack>().attackLocation.position, .3f, enemyLayer);
+                animator.SetBool("Attack", true);
+
+                foreach (Collider2D collider2D in results)
                 {
-                    collider2D.GetComponent<Health>().TakeDamage(25);
+                    if (collider2D.GetComponent<Health>() != null && collider2D.name != "Player")
+                    {
+                        collider2D.GetComponent<Health>().TakeDamage(25);
+                    }
                 }
             }
-        }
-        else
-        {
-            animator.SetBool("Attack", false);
-        }
+            else
+            {
+                animator.SetBool("Attack", false);
+            }
+        
+        animator.SetBool("IsJumping", isJumping);  
 
-        animator.SetBool("IsJumping", isJumping);
+        
+        
 
 
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            animator.SetBool("Roar", true);
-        }
-        else
-        {
-            animator.SetBool("Roar", false);
-        }
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                animator.SetBool("Roar", true);
+            }
+            else
+            {
+                animator.SetBool("Roar", false);
+            }
+        
     }
 
 

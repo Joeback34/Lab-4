@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
     public Animator animator;
     public float attackTime = 0f;
     public float damageInterval = 1.5f;
-
+    private bool isPaused = false;
     private bool canDealDamage = true;
     private Rigidbody2D rb;
     
@@ -49,12 +49,20 @@ public class Enemy : MonoBehaviour
         {
             canDealDamage = false;
         }
-        
+
+
+        if(Input.GetKeyDown(KeyCode.K))
+        {
+            isPaused = true;
+           
+            StartCoroutine(PauseMovement());
+        }
+        else
+        {
+            isPaused = false;
+        }
 
        
-        
-          
-        
     }
     void OnCollisionStay2D(Collision2D collision)
     {
@@ -63,7 +71,7 @@ public class Enemy : MonoBehaviour
             animator.SetTrigger("Attack");
             StartCoroutine(DealDamageCoroutine(collision.gameObject));
         }
-       
+        
     }   
     void OnCollisionExit2D(Collision2D collision)
     {
@@ -72,7 +80,9 @@ public class Enemy : MonoBehaviour
             //StopCoroutine(DealDamageCoroutine(collision.gameObject));
             StopAllCoroutines();
         }
-    }
+        
+
+    }   
     private IEnumerator DealDamageCoroutine(GameObject player)
     {
         while (true)
@@ -87,12 +97,24 @@ public class Enemy : MonoBehaviour
 
                 yield return new WaitForSeconds(damageInterval);
 
-               
+
             }
 
             yield return null;
         }
+      
+       
     }
 
+    private IEnumerator PauseMovement()
+    {
+        moveSpeed = 0f;
+
+        yield return new WaitForSeconds(2);
+
+        moveSpeed = 5f;
+        isPaused = false;
+
+    }
 
 }
