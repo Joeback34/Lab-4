@@ -14,8 +14,8 @@ public class Health : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        
-        if(transform.name == "Player")
+
+        if (transform.name == "Player")
         {
             animatorHealth = 4;
             animator.SetFloat("Health", animatorHealth);
@@ -23,7 +23,14 @@ public class Health : MonoBehaviour
 
     }
 
-   
+    private void Update()
+    {
+        if(currentHealth > 100)
+        {
+            currentHealth = 100;
+        }  
+    }
+
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;

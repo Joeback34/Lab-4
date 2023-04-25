@@ -21,6 +21,7 @@ public class GameOverManager : MonoBehaviour
     void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        ScoreManager.score = 0;
     }
 
 }
