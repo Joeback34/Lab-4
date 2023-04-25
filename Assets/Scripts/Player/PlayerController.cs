@@ -95,6 +95,16 @@ public class PlayerController : MonoBehaviour
         }
 
         animator.SetBool("IsJumping", isJumping);
+
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            animator.SetBool("Roar", true);
+        }
+        else
+        {
+            animator.SetBool("Roar", false);
+        }
     }
 
 
