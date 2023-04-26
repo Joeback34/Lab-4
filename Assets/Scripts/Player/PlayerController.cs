@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using UnityEngine.Events;
 
 
 
@@ -20,19 +20,22 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundLayer, enemyLayer;
     public Animator animator;
     public bool inAir = false;
-    private float lastKPressTime = 0f;
     public float jumpCooldown = 1.0f;
     public float LastJumpTime = 0.0f;
     private Collider2D[] results;
     private Rigidbody2D rb;
     [SerializeField] bool isGrounded = true;
-    private float horizontal, vertical;
+    [SerializeField] float horizontal, vertical;
     private bool hasJumped;
-   
-
+    public bool hasRoared;
+    private bool hasFired;
+    UnityEvent pausRoarEvent;
     void Start()
-    {   
-
+    {
+        if(pausRoarEvent == null)
+        {
+            pausRoarEvent = new UnityEvent();
+        }
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
        
@@ -44,6 +47,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
             isJumping = true;
+            hasJumped = false;
         }
     }
     void Update()
@@ -54,28 +58,9 @@ public class PlayerController : MonoBehaviour
 
         animator.SetFloat("Speed", (float)Mathf.Abs(horizontal));
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.1f, groundLayer);
-        {
-            if(hit.collider != null)
-            {
-                isGrounded = true;
-            }
-            else
-            {
-                isGrounded = false;
-            }
-        }
-
         isGrounded = Physics2D.OverlapBox(transform.position, new Vector2(2f, 0.1f), groundLayer);
-        
-        inAir = !isGrounded;
-
-        if (inAir)
-        {
-            isGrounded = false;
-        }
-
-        if (canJump && Input.GetKeyDown(KeyCode.Space) && !isJumping && Time.time > LastJumpTime + jumpCooldown)
+       
+        if (canJump && hasJumped && !isJumping && Time.time > LastJumpTime + jumpCooldown)
         {
             Jump();
             LastJumpTime = Time.time;
@@ -87,11 +72,7 @@ public class PlayerController : MonoBehaviour
             canJump = true;
         }
 
-
-      
-
-
-        if (Input.GetKeyDown(KeyCode.J))
+        if (hasFired)
         {
 
                 results = Physics2D.OverlapCircleAll(GetComponent<Attack>().attackLocation.position, .3f, enemyLayer);
@@ -99,11 +80,13 @@ public class PlayerController : MonoBehaviour
 
                 foreach (Collider2D collider2D in results)
                 {
+                   
                     if (collider2D.GetComponent<Health>() != null && collider2D.name != "Player")
                     {
                         collider2D.GetComponent<Health>().TakeDamage(25);
                     }
                 }
+            hasFired = false;
         }
         else
         {
@@ -116,12 +99,12 @@ public class PlayerController : MonoBehaviour
       
 
 
-        if (Input.GetKeyDown(KeyCode.K) && canRoar)
+        if (hasRoared && canRoar)
         {
            animator.SetBool("Roar", true);
            canRoar = false;
            roarTime = kCooldown;
-          
+           hasRoared = false;
         }
         else
         {
@@ -170,12 +153,21 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputValue value)
     {
         horizontal = value.Get<Vector2>().x;
-        vertical = value.Get<Vector2>().y;
     }
 
-    public void OnJump(InputValue value)
+    public void OnJump()
     {
-        hasJumped = value.isPressed;
+        hasJumped = true;
+    }
+
+    public void OnFire()
+    {
+        hasFired = true;
+    }
+
+    public void OnRoar()
+    {
+        hasRoared = true;
     }
 
 

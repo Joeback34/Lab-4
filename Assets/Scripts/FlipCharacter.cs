@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class FlipCharacter : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class FlipCharacter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moveInput = Input.GetAxisRaw("Horizontal");
+        
         if(moveInput != 0)
         {
             spriteRenderer.flipX = moveInput < 0;
@@ -32,5 +33,11 @@ public class FlipCharacter : MonoBehaviour
             IsFacingRight = false;
         }
     }
-   
+
+    public void OnMove(InputValue value)
+    {
+        moveInput = value.Get<Vector2>().x;
+        
+    }
+
 }

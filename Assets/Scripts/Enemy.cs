@@ -10,24 +10,24 @@ public class Enemy : MonoBehaviour
     public Animator animator;
     public float attackTime = 0f;
     public float damageInterval = 1.5f;
-
-   
+    private PlayerController playerController;
+    Coroutine attackCoroutine;
     private bool isPaused = false;
     private bool canDealDamage = true;
     private Rigidbody2D rb;
-    
+    public bool isStillColliding = false;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        
-        if(GameObject.Find("Player") != null)
+
+        if (GameObject.Find("Player") != null)
         {
             playerTransform = GameObject.Find("Player").transform;
+               playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         }
-           
 
+     
     }
-
     void Update()
     {
         // Calculate the direction towards the player
@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour
         }
 
 
-        if(Input.GetKeyDown(KeyCode.K))
+        if(playerController != null && playerController.hasRoared && isPaused == false)
         {
             isPaused = true;
            
@@ -72,7 +72,8 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             animator.SetTrigger("Attack");
-            StartCoroutine(DealDamageCoroutine(collision.gameObject));
+            attackCoroutine = StartCoroutine(DealDamageCoroutine(collision.gameObject));
+            isStillColliding = true;
         }
         
     }   
@@ -80,11 +81,9 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            //StopCoroutine(DealDamageCoroutine(collision.gameObject));
             StopAllCoroutines();
+            isStillColliding = false;
         }
-        
-
     }   
     private IEnumerator DealDamageCoroutine(GameObject player)
     {
@@ -99,20 +98,19 @@ public class Enemy : MonoBehaviour
                 attackTime = damageInterval;
 
                 yield return new WaitForSeconds(damageInterval);
-
-
             }
-
+            if (!isStillColliding)
+            {
+                yield return null;
+            }
             yield return null;
         }
-      
-       
     }
 
     private IEnumerator PauseMovement()
     {
         moveSpeed = 0f;
-
+        Debug.Log("IsPaused");
         yield return new WaitForSeconds(2);
 
         moveSpeed = 5f;
