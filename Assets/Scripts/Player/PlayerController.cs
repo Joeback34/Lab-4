@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 
 
 
@@ -26,9 +26,11 @@ public class PlayerController : MonoBehaviour
     private Collider2D[] results;
     private Rigidbody2D rb;
     [SerializeField] bool isGrounded = true;
-
+    private float horizontal, vertical;
+    private bool hasJumped;
     void Start()
-    {
+    {   
+
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
 
@@ -44,7 +46,11 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        Vector2 movement = new Vector2(moveHorizontal * moveSpeed, rb.velocity.y);
+        rb.velocity = movement;
 
+        animator.SetFloat("Speed", (float)Mathf.Abs(moveHorizontal));
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.1f, groundLayer);
         {
@@ -157,6 +163,16 @@ public class PlayerController : MonoBehaviour
     {
         Gizmos.DrawCube(groundCheck.position, new Vector2(2f, 0.1f));
         Gizmos.DrawCube(transform.position, new Vector2(2f, 0.1f));
+    }
+    public void OnMove(InputValue value)
+    {
+        horizontal = value.Get<Vector2>().x;
+        vertical = value.Get<Vector2>().y;
+    }
+
+    public void OnJump(InputValue value)
+    {
+        hasJumped = value.isPressed;
     }
 }
 
