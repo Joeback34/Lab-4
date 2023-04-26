@@ -26,12 +26,12 @@ public class PlayerController : MonoBehaviour
     private Collider2D[] results;
     private Rigidbody2D rb;
     [SerializeField] bool isGrounded = true;
-
+    public AudioSource audiosource;
     void Start()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-
+        audiosource = GetComponent<AudioSource>();
         canRoar = true;
     }
     void Jump()
@@ -112,7 +112,8 @@ public class PlayerController : MonoBehaviour
         {
            animator.SetBool("Roar", true);
            canRoar = false;
-            roarTime = kCooldown;
+           roarTime = kCooldown;
+           audiosource.Play();
         }
         else
         {
