@@ -26,23 +26,21 @@ public class PlayerController : MonoBehaviour
     private Collider2D[] results;
     private Rigidbody2D rb;
     [SerializeField] bool isGrounded = true;
-<<<<<<< HEAD
     private float horizontal, vertical;
     private bool hasJumped;
-=======
-    public AudioSource audiosource;
->>>>>>> 343e778fc9213bdb5e8d7b4032726ae95de02685
+   
+
     void Start()
     {   
 
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        audiosource = GetComponent<AudioSource>();
+       
         canRoar = true;
     }
     void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (hasJumped && isGrounded)
         {
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
             isJumping = true;
@@ -50,11 +48,11 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        Vector2 movement = new Vector2(moveHorizontal * moveSpeed, rb.velocity.y);
+        
+        Vector2 movement = new Vector2(horizontal * moveSpeed, rb.velocity.y);
         rb.velocity = movement;
 
-        animator.SetFloat("Speed", (float)Mathf.Abs(moveHorizontal));
+        animator.SetFloat("Speed", (float)Mathf.Abs(horizontal));
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.1f, groundLayer);
         {
@@ -123,7 +121,7 @@ public class PlayerController : MonoBehaviour
            animator.SetBool("Roar", true);
            canRoar = false;
            roarTime = kCooldown;
-           audiosource.Play();
+          
         }
         else
         {
@@ -179,6 +177,8 @@ public class PlayerController : MonoBehaviour
     {
         hasJumped = value.isPressed;
     }
+
+
 }
 
 
