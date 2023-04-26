@@ -26,14 +26,18 @@ public class PlayerController : MonoBehaviour
     private Collider2D[] results;
     private Rigidbody2D rb;
     [SerializeField] bool isGrounded = true;
+<<<<<<< HEAD
     private float horizontal, vertical;
     private bool hasJumped;
+=======
+    public AudioSource audiosource;
+>>>>>>> 343e778fc9213bdb5e8d7b4032726ae95de02685
     void Start()
     {   
 
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-
+        audiosource = GetComponent<AudioSource>();
         canRoar = true;
     }
     void Jump()
@@ -118,7 +122,8 @@ public class PlayerController : MonoBehaviour
         {
            animator.SetBool("Roar", true);
            canRoar = false;
-            roarTime = kCooldown;
+           roarTime = kCooldown;
+           audiosource.Play();
         }
         else
         {

@@ -488,7 +488,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 411e658aadacc9e429abb44d2a0caf4f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -2212,6 +2212,7 @@ MonoBehaviour:
   jumpCooldown: 1
   LastJumpTime: 0
   isGrounded: 1
+  audiosource: {fileID: 455432225}
 --- !u!95 &1726421843
 Animator:
   serializedVersion: 3
@@ -2619,7 +2620,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec161d75710aa07489bf220cc7167362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   backToMenu: {fileID: 1269816080}
+=======
+  backToMenu: {fileID: 0}
+>>>>>>> 343e778fc9213bdb5e8d7b4032726ae95de02685
   restartButton: {fileID: 1498678279}
   gameOverUI: {fileID: 650038219}
 --- !u!4 &1763585927
