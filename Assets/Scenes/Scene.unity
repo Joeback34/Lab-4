@@ -260,9 +260,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 8894179113369430940, guid: 8af20d8d409f2e641b1b8ef4814f9c6c, type: 3}
-  spawnRate: 6.02
+  spawnRate: 9.67
   spawnRadius: 11.19
   spawnHeight: -2.67
+  enemies: []
 --- !u!4 &331558310
 Transform:
   m_ObjectHideFlags: 0
@@ -497,7 +498,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 411e658aadacc9e429abb44d2a0caf4f, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1054,9 +1055,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_audioClip: {fileID: 8300000, guid: 411e658aadacc9e429abb44d2a0caf4f, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.534
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1399,9 +1400,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.14901961, g: 1, b: 0, a: 1}
     m_PressedColor: {r: 0.27058825, g: 0.64705884, b: 0.31764707, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.14901961, g: 1, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1735,9 +1736,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.14901961, g: 1, b: 0, a: 1}
     m_PressedColor: {r: 0.34082413, g: 0.6509434, b: 0.3849874, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.14901961, g: 1, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -2207,6 +2208,8 @@ MonoBehaviour:
   canRoar: 0
   kCooldown: 2
   roarTime: 0
+  roarSource: {fileID: 1055551248}
+  attackRoar: {fileID: 455432225}
   moveSpeed: 10
   jumpForce: 250
   groundCheck: {fileID: 1210216066}
@@ -2224,6 +2227,21 @@ MonoBehaviour:
   horizontal: 0
   vertical: 0
   hasRoared: 0
+  pausRoarEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 331558309}
+        m_TargetAssemblyTypeName: EnemySpawnManager, Assembly-CSharp
+        m_MethodName: PauseEnemies
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &1726421843
 Animator:
   serializedVersion: 3

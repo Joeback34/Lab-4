@@ -11,7 +11,8 @@ public class PlayerController : MonoBehaviour
     public bool canRoar;
     public float kCooldown = 2f;
     public float roarTime = 0f;
-
+    public AudioSource roarSource;
+    public AudioSource attackRoar;
     bool isJumping = false;
     bool canJump = true;
     public float moveSpeed = 5f;
@@ -29,7 +30,7 @@ public class PlayerController : MonoBehaviour
     private bool hasJumped;
     public bool hasRoared;
     private bool hasFired;
-    UnityEvent pausRoarEvent;
+    public UnityEvent pausRoarEvent;
     void Start()
     {
         if(pausRoarEvent == null)
@@ -74,7 +75,7 @@ public class PlayerController : MonoBehaviour
 
         if (hasFired)
         {
-
+                attackRoar.Play();
                 results = Physics2D.OverlapCircleAll(GetComponent<Attack>().attackLocation.position, .3f, enemyLayer);
                 animator.SetBool("Attack", true);
 
@@ -101,6 +102,8 @@ public class PlayerController : MonoBehaviour
 
         if (hasRoared && canRoar)
         {
+           roarSource.Play();
+           pausRoarEvent.Invoke();
            animator.SetBool("Roar", true);
            canRoar = false;
            roarTime = kCooldown;

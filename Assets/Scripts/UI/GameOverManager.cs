@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 public class GameOverManager : MonoBehaviour
 {
     public Button backToMenu;
@@ -18,6 +19,7 @@ public class GameOverManager : MonoBehaviour
     public void gameOver()
     {
         gameOverUI.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(restartButton.gameObject);
     }
 
     void RestartGame()
