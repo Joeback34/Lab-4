@@ -57,6 +57,8 @@ public class PlayerController : MonoBehaviour
         Vector2 movement = new Vector2(horizontal * moveSpeed, rb.velocity.y);
         rb.velocity = movement;
 
+        
+
         animator.SetFloat("Speed", (float)Mathf.Abs(horizontal));
 
         isGrounded = Physics2D.OverlapBox(transform.position, new Vector2(2f, 0.1f), groundLayer);
@@ -153,24 +155,44 @@ public class PlayerController : MonoBehaviour
         Gizmos.DrawCube(groundCheck.position, new Vector2(2f, 0.1f));
         Gizmos.DrawCube(transform.position, new Vector2(2f, 0.1f));
     }
+
+    public void MoveInput(Vector2 newMoveDir)
+    {
+        horizontal = newMoveDir.x;
+    }
     public void OnMove(InputValue value)
     {
-        horizontal = value.Get<Vector2>().x;
+        MoveInput(value.Get<Vector2>());
     }
 
-    public void OnJump()
+    public void JumpInput(bool newJumpState)
     {
-        hasJumped = true;
+        hasJumped = newJumpState;
     }
 
-    public void OnFire()
+    public void OnJump(InputValue value)
     {
-        hasFired = true;
+        JumpInput(value.isPressed);
     }
 
-    public void OnRoar()
+    public void FireInput(bool newFireState)
     {
-        hasRoared = true;
+        hasFired = newFireState;
+    }
+
+    public void OnFire(InputValue value)
+    {
+        FireInput(value.isPressed);
+    }
+
+    public void RoarInput(bool newRoarState)
+    {
+        hasRoared = newRoarState;
+    }
+
+    public void OnRoar(InputValue value)
+    {
+        RoarInput(value.isPressed);
     }
 
 
