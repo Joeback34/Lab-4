@@ -701,7 +701,12 @@ PlayerSettings:
   metroCertificateIssuer: GCTC
   metroCertificateNotAfter: 0086ce1e329cda01
   metroApplicationDescription: 2D_BuiltInRenderer
-  wsaImages: {}
+  wsaImages:
+    65636: Assets/Logos/Icon-50.png
+    65661: Assets/Logos/Icon-63.png
+    65686: Assets/Logos/Icon-75.png
+    65736: Assets/Logos/Icon-100.png
+    65936: Assets/Logos/Icon-200.png
   metroTileShortName: Dino Smasher
   metroTileShowName: 0
   metroMediumTileShowName: 0
