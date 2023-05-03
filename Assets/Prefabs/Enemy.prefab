@@ -75,6 +75,8 @@ MonoBehaviour:
   animator: {fileID: 1169989125}
   attackTime: 0
   damageInterval: 1.5
+  isPaused: 0
+  isStillColliding: 0
 --- !u!212 &4760763112782292821
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -114,7 +116,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -5515851078783427038, guid: b5f8eb7a5e54b5b47b82fbcdbffe9239, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

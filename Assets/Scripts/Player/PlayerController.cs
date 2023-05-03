@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     private Collider2D[] results;
     private Rigidbody2D rb;
     [SerializeField] bool isGrounded = true;
-    [SerializeField] float horizontal, vertical;
+    public float horizontal, vertical;
     private bool hasJumped;
     public bool hasRoared;
     private bool hasFired;
@@ -158,7 +158,8 @@ public class PlayerController : MonoBehaviour
 
     public void MoveInput(Vector2 newMoveDir)
     {
-        horizontal = newMoveDir.x;
+
+        horizontal = newMoveDir.normalized.x;
     }
     public void OnMove(InputValue value)
     {

@@ -18,7 +18,16 @@ namespace StarterAssets
             starterAssetsInputs.JumpInput(virtualJumpState);
         }
 
-     
+        public void VirtualFireInput(bool virtualFireState)
+        {
+            starterAssetsInputs.FireInput(virtualFireState);
+        }
+        public void VirtualRoarInput(bool virtualRoarState)
+        {
+            starterAssetsInputs.RoarInput(virtualRoarState);
+        }
+
+       
         
     }
 
