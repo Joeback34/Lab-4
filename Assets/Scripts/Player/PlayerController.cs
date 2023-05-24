@@ -53,7 +53,9 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        
+         if (Time.timeScale == 0f) // Check if the game is paused
+            return;
+
         Vector2 movement = new Vector2(horizontal * moveSpeed, rb.velocity.y);
         rb.velocity = movement;
 

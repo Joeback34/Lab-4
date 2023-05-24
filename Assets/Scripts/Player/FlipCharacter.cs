@@ -8,6 +8,7 @@ public class FlipCharacter : MonoBehaviour
     private PlayerController playerCon;
     public bool IsFacingRight;
     
+
     private SpriteRenderer spriteRenderer;
     private float moveInput;
     // Start is called before the first frame update
@@ -20,6 +21,8 @@ public class FlipCharacter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Time.timeScale == 0f) // Check if the game is paused
+            return;
 
         moveInput = playerCon.horizontal;
 
@@ -36,6 +39,8 @@ public class FlipCharacter : MonoBehaviour
         {
             IsFacingRight = false;
         }
+
+        
     }
 
     /*
